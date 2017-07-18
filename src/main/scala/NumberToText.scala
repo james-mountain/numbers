@@ -11,9 +11,9 @@ class NumberToText(number : BigInt) {
     spliceRec(number.toString().toList)
   }
 
-  def getRepresentation(orderedNumList : List[String], representationList : List[String]): Unit = {
-    orderedNumList.zip(representationList).reverse.foreach {
-      case (num, shortrep) => println(num + " " + shortrep)
+  def getRepresentation(orderedNumList : List[String], representationList : List[String]): List[String] = {
+    orderedNumList.zip(representationList).reverse.map {
+      case (num, shortrep) => num + " " + shortrep
     }
   }
 }
@@ -21,10 +21,4 @@ class NumberToText(number : BigInt) {
 object NumberToText {
   val shortStringList = List("", "thousand", "million", "billion", "trillion", "quadrillion")
   val longStringList = List("", "thousand", "million", "milliard", "billion", "billiard")
-
-  def main(args: Array[String]): Unit = {
-    val nTT = new NumberToText(BigInt("1234567891111"))
-    nTT.getRepresentation(nTT.spliceLongNum(), shortStringList)
-    nTT.getRepresentation(nTT.spliceLongNum(), longStringList)
-  }
 }
