@@ -1,6 +1,8 @@
+import scala.annotation.tailrec
+
 class NumberToText(number : BigInt) {
   def spliceLongNum(): List[String] = {
-    def spliceRec(remainSegments : List[Char], splicedNums : List[String]) : List[String] = remainSegments.length match {
+    @tailrec def spliceRec(remainSegments : List[Char], splicedNums : List[String]) : List[String] = remainSegments.length match {
       case x if x > 3 => spliceRec(remainSegments.dropRight(3), splicedNums :+ remainSegments.takeRight(3).mkString )
       case _ => splicedNums :+ remainSegments.takeRight(3).mkString;
     }
