@@ -4,7 +4,7 @@
 class NumberToTextTest extends BaseTest {
   val nTT = new NumberToText(BigInt("25123456789"))
   "A number above 20 billion" should "be able to be converted its short representation" in {
-    val representation = nTT.getRepresentation(nTT.spliceLongNum(), NumberToText.shortStringList)
+    val representation = nTT.getRepresentation(NumberToText.shortStringList)
 
     representation(0) should be ("25 billion")
     representation(1) should be ("123 million")
@@ -13,7 +13,7 @@ class NumberToTextTest extends BaseTest {
   }
 
   "A number above 20 billion" should "be able to be converted its long representation" in {
-    val representation = nTT.getRepresentation(nTT.spliceLongNum(), NumberToText.longStringList)
+    val representation = nTT.getRepresentation(NumberToText.longStringList)
 
     representation(0) should be ("25 milliard")
     representation(1) should be ("123 million")
