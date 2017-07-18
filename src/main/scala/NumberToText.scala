@@ -1,6 +1,3 @@
-/**
-  * Created by Administrator on 18/07/2017.
-  */
 class NumberToText(number : BigInt) {
   def spliceLongNum(): List[String] = {
     def spliceRec(remainSegments : List[Char]) : List[String] = remainSegments.length match {
